@@ -7,23 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5829D23220631540000939C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5829D22220631540000939C /* Extensions.swift */; };
 		A5BBA58521FE3A000071DD2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BBA58421FE3A000071DD2F /* AppDelegate.swift */; };
-		A5BBA58721FE3A000071DD2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BBA58621FE3A000071DD2F /* ViewController.swift */; };
-		A5BBA58A21FE3A000071DD2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5BBA58821FE3A000071DD2F /* Main.storyboard */; };
+		A5BBA58721FE3A000071DD2F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BBA58621FE3A000071DD2F /* MainViewController.swift */; };
 		A5BBA58D21FE3A000071DD2F /* PalmList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A5BBA58B21FE3A000071DD2F /* PalmList.xcdatamodeld */; };
 		A5BBA58F21FE3A000071DD2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5BBA58E21FE3A000071DD2F /* Assets.xcassets */; };
 		A5BBA59221FE3A000071DD2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5BBA59021FE3A000071DD2F /* LaunchScreen.storyboard */; };
+		A5BBA59E21FE56650071DD2F /* ListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BBA59D21FE56650071DD2F /* ListItemCell.swift */; };
+		A5BBA5A12205F12D0071DD2F /* ListItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BBA59F2205F12D0071DD2F /* ListItem+CoreDataClass.swift */; };
+		A5BBA5A22205F12D0071DD2F /* ListItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BBA5A02205F12D0071DD2F /* ListItem+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A5829D22220631540000939C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A5BBA58121FE3A000071DD2F /* PalmList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PalmList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5BBA58421FE3A000071DD2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A5BBA58621FE3A000071DD2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A5BBA58921FE3A000071DD2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A5BBA58621FE3A000071DD2F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A5BBA58C21FE3A000071DD2F /* PalmList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PalmList.xcdatamodel; sourceTree = "<group>"; };
 		A5BBA58E21FE3A000071DD2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5BBA59121FE3A000071DD2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5BBA59321FE3A000071DD2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5BBA59D21FE56650071DD2F /* ListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemCell.swift; sourceTree = "<group>"; };
+		A5BBA59F2205F12D0071DD2F /* ListItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A5BBA5A02205F12D0071DD2F /* ListItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +62,12 @@
 		A5BBA58321FE3A000071DD2F /* PalmList */ = {
 			isa = PBXGroup;
 			children = (
+				A5BBA59F2205F12D0071DD2F /* ListItem+CoreDataClass.swift */,
+				A5BBA5A02205F12D0071DD2F /* ListItem+CoreDataProperties.swift */,
 				A5BBA58421FE3A000071DD2F /* AppDelegate.swift */,
-				A5BBA58621FE3A000071DD2F /* ViewController.swift */,
-				A5BBA58821FE3A000071DD2F /* Main.storyboard */,
+				A5829D22220631540000939C /* Extensions.swift */,
+				A5BBA59D21FE56650071DD2F /* ListItemCell.swift */,
+				A5BBA58621FE3A000071DD2F /* MainViewController.swift */,
 				A5BBA58E21FE3A000071DD2F /* Assets.xcassets */,
 				A5BBA59021FE3A000071DD2F /* LaunchScreen.storyboard */,
 				A5BBA59321FE3A000071DD2F /* Info.plist */,
@@ -127,7 +136,6 @@
 			files = (
 				A5BBA59221FE3A000071DD2F /* LaunchScreen.storyboard in Resources */,
 				A5BBA58F21FE3A000071DD2F /* Assets.xcassets in Resources */,
-				A5BBA58A21FE3A000071DD2F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +146,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5BBA5A22205F12D0071DD2F /* ListItem+CoreDataProperties.swift in Sources */,
+				A5BBA59E21FE56650071DD2F /* ListItemCell.swift in Sources */,
 				A5BBA58D21FE3A000071DD2F /* PalmList.xcdatamodeld in Sources */,
-				A5BBA58721FE3A000071DD2F /* ViewController.swift in Sources */,
+				A5BBA5A12205F12D0071DD2F /* ListItem+CoreDataClass.swift in Sources */,
+				A5BBA58721FE3A000071DD2F /* MainViewController.swift in Sources */,
 				A5BBA58521FE3A000071DD2F /* AppDelegate.swift in Sources */,
+				A5829D23220631540000939C /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A5BBA58821FE3A000071DD2F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A5BBA58921FE3A000071DD2F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A5BBA59021FE3A000071DD2F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -289,6 +293,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7648369VT6;
 				INFOPLIST_FILE = PalmList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +301,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = timmywaters.software.PalmList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -307,6 +312,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7648369VT6;
 				INFOPLIST_FILE = PalmList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -314,7 +320,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = timmywaters.software.PalmList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
