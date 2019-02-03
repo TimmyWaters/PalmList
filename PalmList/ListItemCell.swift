@@ -47,6 +47,19 @@ class ListItemCell: UITableViewCell {
         return button
     }()
     
+    let priorityButton: UIButton = {
+        let button = UIButton(type: .custom)
+//        button.setImage(UIImage(named: "UnChecked"), for: .normal)
+//        button.setImage(UIImage(named: "Checked"), for: .selected)
+        button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = UIColor.white
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
+        button.titleLabel?.font = UIFont.init(name: "Avenir Next", size: 24)
+        return button
+    }()
+    
     let itemLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.black
@@ -59,18 +72,24 @@ class ListItemCell: UITableViewCell {
         setupCell()
         
         checkButton.addTarget(self, action: #selector(setChecked), for: .touchUpInside)
+        itemLabel.translatesAutoresizingMaskIntoConstraints = false
+        itemLabel.numberOfLines = 0
+        itemLabel.lineBreakMode = .byWordWrapping
     }
     
     func setupCell() {
         addSubview(cellView)
         cellView.addSubview(checkButton)
+        cellView.addSubview(priorityButton)
         cellView.addSubview(itemLabel)
-        
+        cellView.heightAnchor.constraint(greaterThanOrEqualToConstant: 60).isActive = true
         cellView.setAnchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 4, paddingLeft: 8, paddingBottom: 4, paddingRight: 8)
         checkButton.setAnchor(top: nil, left: cellView.leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 50, height: 50)
         checkButton.centerYAnchor.constraint(equalTo: cellView.centerYAnchor).isActive = true
-        itemLabel.setAnchor(top: nil, left: checkButton.rightAnchor, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 20, paddingBottom: 0, paddingRight: 20, width: 0, height: 40)
-        itemLabel.centerYAnchor.constraint(equalTo: checkButton.centerYAnchor).isActive = true
+        priorityButton.setAnchor(top: nil, left: checkButton.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 40, height: 40)
+        priorityButton.centerYAnchor.constraint(equalTo: checkButton.centerYAnchor).isActive = true
+        itemLabel.setAnchor(top: cellView.topAnchor, left: priorityButton.rightAnchor, bottom: cellView.bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 20, paddingBottom: 0, paddingRight: 20)
+        itemLabel.centerYAnchor.constraint(equalTo: priorityButton.centerYAnchor).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

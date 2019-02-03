@@ -29,9 +29,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAdd(_:)))
         navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         listTableView.tableFooterView = UIView()
+//        listTableView.rowHeight = UITableView.automaticDimension
+//        listTableView.estimatedRowHeight = 60
         setupTableView()
         loadData()
-//        saveDate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,12 +52,16 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! ListItemCell
         cell.checkButton.isSelected = listItems[indexPath.row].isChecked
+        cell.priorityButton.setTitle(String(listItems[indexPath.row].priorityLevel), for: .normal)
         cell.itemLabel.text = listItems[indexPath.row].itemText
         cell.delegate = self
         return cell
@@ -99,10 +104,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         listTableView.delegate = self
         listTableView.register(UITableViewCell.self, forCellReuseIdentifier: "defaultCell")
         
-        listTableView.topAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor).isActive = true
-        listTableView.leadingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        listTableView.trailingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        listTableView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        listTableView.topAnchor.constraint(equalTo:view.safeTopAnchor).isActive = true
+        listTableView.leftAnchor.constraint(equalTo:view.safeLeftAnchor).isActive = true
+        listTableView.rightAnchor.constraint(equalTo:view.safeRightAnchor).isActive = true
+        listTableView.bottomAnchor.constraint(equalTo:view.safeBottomAnchor).isActive = true
     }
     
     @objc func onAdd(_ sender: UIBarButtonItem) {
@@ -147,23 +152,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // Present Dialog message
         self.present(alertController, animated: true, completion:nil)
-    }
-    
-    func saveDate() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let palmListItem = ListItem(context: context)
-        
-        palmListItem.isChecked = false
-        palmListItem.priorityLevel = 5
-        palmListItem.itemText = "Things"
-        
-        do {
-            try context.save()
-        }
-        catch let err {
-            print(err)
-        }
     }
     
     func loadData() {
