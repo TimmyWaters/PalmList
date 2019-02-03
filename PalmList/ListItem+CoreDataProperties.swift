@@ -18,7 +18,7 @@ extension ListItem {
     }
 
     @NSManaged public var isChecked: Bool
-    @NSManaged public var priorityLevel: Int16
+    @NSManaged public var priorityLevel: String
     @NSManaged public var itemText: String
 
 }

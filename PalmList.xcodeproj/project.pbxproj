@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A54F3C22220768D0005E2591 /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F3C21220768D0005E2591 /* DropDownView.swift */; };
+		A54F3C2422076DF2005E2591 /* PriorityButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F3C2322076DF2005E2591 /* PriorityButton.swift */; };
 		A5829D23220631540000939C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5829D22220631540000939C /* Extensions.swift */; };
 		A5BBA58521FE3A000071DD2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BBA58421FE3A000071DD2F /* AppDelegate.swift */; };
 		A5BBA58721FE3A000071DD2F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BBA58621FE3A000071DD2F /* MainViewController.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A54F3C21220768D0005E2591 /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
+		A54F3C2322076DF2005E2591 /* PriorityButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityButton.swift; sourceTree = "<group>"; };
 		A5829D22220631540000939C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A5BBA58121FE3A000071DD2F /* PalmList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PalmList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5BBA58421FE3A000071DD2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 				A5BBA5A02205F12D0071DD2F /* ListItem+CoreDataProperties.swift */,
 				A5BBA58421FE3A000071DD2F /* AppDelegate.swift */,
 				A5829D22220631540000939C /* Extensions.swift */,
+				A54F3C21220768D0005E2591 /* DropDownView.swift */,
+				A54F3C2322076DF2005E2591 /* PriorityButton.swift */,
 				A5BBA59D21FE56650071DD2F /* ListItemCell.swift */,
 				A5BBA58621FE3A000071DD2F /* MainViewController.swift */,
 				A5BBA58E21FE3A000071DD2F /* Assets.xcassets */,
@@ -151,7 +157,9 @@
 				A5BBA58D21FE3A000071DD2F /* PalmList.xcdatamodeld in Sources */,
 				A5BBA5A12205F12D0071DD2F /* ListItem+CoreDataClass.swift in Sources */,
 				A5BBA58721FE3A000071DD2F /* MainViewController.swift in Sources */,
+				A54F3C22220768D0005E2591 /* DropDownView.swift in Sources */,
 				A5BBA58521FE3A000071DD2F /* AppDelegate.swift in Sources */,
+				A54F3C2422076DF2005E2591 /* PriorityButton.swift in Sources */,
 				A5829D23220631540000939C /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

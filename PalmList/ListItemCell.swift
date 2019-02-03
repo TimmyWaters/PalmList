@@ -11,10 +11,13 @@ import Foundation
 
 protocol ListItemCellDelegate {
     func setChecked(cell: ListItemCell)
+    func setPriority(cell: ListItemCell)
 }
 
 class ListItemCell: UITableViewCell {
     var delegate: ListItemCellDelegate?
+    
+    var priorityButton = PriorityButton(type: .custom)
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,18 +50,22 @@ class ListItemCell: UITableViewCell {
         return button
     }()
     
-    let priorityButton: UIButton = {
-        let button = UIButton(type: .custom)
-//        button.setImage(UIImage(named: "UnChecked"), for: .normal)
-//        button.setImage(UIImage(named: "Checked"), for: .selected)
-        button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = UIColor.white
-        button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor.black.cgColor
-        button.titleLabel?.font = UIFont.init(name: "Avenir Next", size: 24)
-        return button
-    }()
+//    var priorityButton: UIButton = {
+//        let button = UIButton(type: .custom)
+//        var dropDownView = DropDownView()
+//        dropDownView = DropDownView.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+//        dropDownView.translatesAutoresizingMaskIntoConstraints = false
+//        
+////        button.setImage(UIImage(named: "UnChecked"), for: .normal)
+////        button.setImage(UIImage(named: "Checked"), for: .selected)
+//        button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+//        button.setTitleColor(.black, for: .normal)
+//        button.backgroundColor = UIColor.white
+//        button.layer.borderWidth = 2
+//        button.layer.borderColor = UIColor.black.cgColor
+//        button.titleLabel?.font = UIFont.init(name: "Avenir Next", size: 24)
+//        return button
+//    }()
     
     let itemLabel: UILabel = {
         let label = UILabel()
@@ -71,6 +78,7 @@ class ListItemCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupCell()
         
+        priorityButton.addTarget(self, action: #selector(setPriority), for: .touchUpInside)
         checkButton.addTarget(self, action: #selector(setChecked), for: .touchUpInside)
         itemLabel.translatesAutoresizingMaskIntoConstraints = false
         itemLabel.numberOfLines = 0
@@ -98,5 +106,9 @@ class ListItemCell: UITableViewCell {
     
     @objc private func setChecked() {
         self.delegate?.setChecked(cell: self)
+    }
+    
+    @objc private func setPriority() {
+        self.delegate?.setPriority(cell: self)
     }
 }

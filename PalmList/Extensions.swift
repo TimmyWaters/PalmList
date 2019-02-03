@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol DropDownDelegate {
+    func dropDownPressed(string: String)
+}
+
 extension UIView {
     
     func setCellShadow() {

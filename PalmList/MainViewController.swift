@@ -61,7 +61,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! ListItemCell
         cell.checkButton.isSelected = listItems[indexPath.row].isChecked
-        cell.priorityButton.setTitle(String(listItems[indexPath.row].priorityLevel), for: .normal)
+        cell.priorityButton.setTitle(listItems[indexPath.row].priorityLevel, for: .normal)
         cell.itemLabel.text = listItems[indexPath.row].itemText
         cell.delegate = self
         return cell
@@ -102,7 +102,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         listTableView.dataSource = self
         listTableView.delegate = self
-        listTableView.register(UITableViewCell.self, forCellReuseIdentifier: "defaultCell")
         
         listTableView.topAnchor.constraint(equalTo:view.safeTopAnchor).isActive = true
         listTableView.leftAnchor.constraint(equalTo:view.safeLeftAnchor).isActive = true
@@ -127,7 +126,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let palmListItem = ListItem(context: context)
             
             palmListItem.isChecked = false
-            palmListItem.priorityLevel = 1
+            palmListItem.priorityLevel = "1"
             palmListItem.itemText = itemText
             
             do {
@@ -210,5 +209,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         catch let err {
             print(err)
         }
+    }
+    
+    func setPriority(cell: ListItemCell) {
+        // Maybe this will help
     }
 }
