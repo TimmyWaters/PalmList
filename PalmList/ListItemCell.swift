@@ -17,8 +17,6 @@ protocol ListItemCellDelegate {
 class ListItemCell: UITableViewCell {
     var delegate: ListItemCellDelegate?
     
-    var priorityButton = PriorityButton(type: .custom)
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -50,22 +48,19 @@ class ListItemCell: UITableViewCell {
         return button
     }()
     
-//    var priorityButton: UIButton = {
-//        let button = UIButton(type: .custom)
-//        var dropDownView = DropDownView()
-//        dropDownView = DropDownView.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-//        dropDownView.translatesAutoresizingMaskIntoConstraints = false
-//        
-////        button.setImage(UIImage(named: "UnChecked"), for: .normal)
-////        button.setImage(UIImage(named: "Checked"), for: .selected)
-//        button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-//        button.setTitleColor(.black, for: .normal)
-//        button.backgroundColor = UIColor.white
-//        button.layer.borderWidth = 2
-//        button.layer.borderColor = UIColor.black.cgColor
-//        button.titleLabel?.font = UIFont.init(name: "Avenir Next", size: 24)
-//        return button
-//    }()
+    var priorityButton: UIButton = {
+        let button = UIButton(type: .custom)
+        
+//        button.setImage(UIImage(named: "UnChecked"), for: .normal)
+//        button.setImage(UIImage(named: "Checked"), for: .selected)
+        button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = UIColor.white
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
+        button.titleLabel?.font = UIFont.init(name: "Avenir Next", size: 24)
+        return button
+    }()
     
     let itemLabel: UILabel = {
         let label = UILabel()

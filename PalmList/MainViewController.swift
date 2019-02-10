@@ -212,6 +212,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func setPriority(cell: ListItemCell) {
-        // Maybe this will help
+        // Figure out
     }
 }
