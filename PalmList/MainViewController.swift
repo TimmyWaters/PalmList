@@ -212,6 +212,19 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func setPriority(cell: ListItemCell) {
-        // Figure out
+        guard let indexPath = self.listTableView.indexPath(for: cell) else {
+            // Note, this shouldn't happen - how did the user tap on a button that wasn't on screen?
+            return
+        }
+        let cell = listTableView.cellForRow(at: indexPath) as! ListItemCell
+        let controller = UIViewController()
+            controller.modalPresentationStyle = .popover
+        controller.preferredContentSize = CGSize(width: 300, height: 100)
+        let presentationController = AlwaysPresentAsPopover.configurePresentation(forController: controller)
+        presentationController.sourceView = cell
+        presentationController.sourceRect = cell.bounds
+        presentationController.permittedArrowDirections = [.down, .up]
+        presentationController.backgroundColor = #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1)
+        self.present(controller, animated: true)
     }
 }

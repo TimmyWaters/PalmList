@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5104B322218B8D60051AA5D /* AlwaysShowPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5104B312218B8D60051AA5D /* AlwaysShowPopup.swift */; };
 		A5829D23220631540000939C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5829D22220631540000939C /* Extensions.swift */; };
 		A5BBA58521FE3A000071DD2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BBA58421FE3A000071DD2F /* AppDelegate.swift */; };
 		A5BBA58721FE3A000071DD2F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BBA58621FE3A000071DD2F /* MainViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A5104B312218B8D60051AA5D /* AlwaysShowPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlwaysShowPopup.swift; sourceTree = "<group>"; };
 		A5829D22220631540000939C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A5BBA58121FE3A000071DD2F /* PalmList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PalmList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5BBA58421FE3A000071DD2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				A5BBA58421FE3A000071DD2F /* AppDelegate.swift */,
 				A5829D22220631540000939C /* Extensions.swift */,
 				A5BBA59D21FE56650071DD2F /* ListItemCell.swift */,
+				A5104B312218B8D60051AA5D /* AlwaysShowPopup.swift */,
 				A5BBA58621FE3A000071DD2F /* MainViewController.swift */,
 				A5BBA58E21FE3A000071DD2F /* Assets.xcassets */,
 				A5BBA59021FE3A000071DD2F /* LaunchScreen.storyboard */,
@@ -152,6 +155,7 @@
 				A5BBA5A12205F12D0071DD2F /* ListItem+CoreDataClass.swift in Sources */,
 				A5BBA58721FE3A000071DD2F /* MainViewController.swift in Sources */,
 				A5BBA58521FE3A000071DD2F /* AppDelegate.swift in Sources */,
+				A5104B322218B8D60051AA5D /* AlwaysShowPopup.swift in Sources */,
 				A5829D23220631540000939C /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
