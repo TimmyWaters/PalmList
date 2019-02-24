@@ -8,10 +8,12 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ListItemCellDelegate {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ListItemCellDelegate, PriorityLevelDelegate {
     
     let listTableView = UITableView()
-    let testData: [String] = ["Test 1", "Test 2", "Test 3", "Test 4", "Test 5"]
+    
+    var popoverCellIndex = IndexPath()
+    
     var navBarTitle: UINavigationItem = {
         let title = UINavigationItem()
         title.title = "PalmList"
@@ -29,8 +31,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAdd(_:)))
         navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         listTableView.tableFooterView = UIView()
-//        listTableView.rowHeight = UITableView.automaticDimension
-//        listTableView.estimatedRowHeight = 60
         setupTableView()
         loadData()
     }
@@ -211,20 +211,26 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    func setPriority(cell: ListItemCell) {
+    func popoverDisplay(cell: ListItemCell) {
         guard let indexPath = self.listTableView.indexPath(for: cell) else {
             // Note, this shouldn't happen - how did the user tap on a button that wasn't on screen?
             return
         }
+        popoverCellIndex = indexPath
         let cell = listTableView.cellForRow(at: indexPath) as! ListItemCell
-        let controller = UIViewController()
-            controller.modalPresentationStyle = .popover
-        controller.preferredContentSize = CGSize(width: 300, height: 100)
+        
+        let controller = PopoverViewController()
+        controller.modalPresentationStyle = .popover
+        controller.preferredContentSize = CGSize(width: 300, height: 80)
         let presentationController = AlwaysPresentAsPopover.configurePresentation(forController: controller)
         presentationController.sourceView = cell
         presentationController.sourceRect = cell.bounds
-        presentationController.permittedArrowDirections = [.down, .up]
-        presentationController.backgroundColor = #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1)
+        presentationController.permittedArrowDirections = [.up, .down]
+        presentationController.backgroundColor = UIColor(r: 0, g: 84, b: 147)
         self.present(controller, animated: true)
+    }
+    
+    func setPriorityLevel(level: String) {
+        print("It worked")
     }
 }

@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol DropDownDelegate {
-    func dropDownPressed(string: String)
-}
-
 extension UIView {
     
     func setCellShadow() {
@@ -21,7 +17,7 @@ extension UIView {
         self.layer.shadowRadius = 1.0
         self.layer.masksToBounds = false
         self.clipsToBounds = false
-        self.layer.cornerRadius = 4
+        self.layer.cornerRadius = 8
     }
     
     func setAnchor(top: NSLayoutYAxisAnchor?, left: NSLayoutXAxisAnchor?,

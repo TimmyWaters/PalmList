@@ -11,7 +11,7 @@ import Foundation
 
 protocol ListItemCellDelegate {
     func setChecked(cell: ListItemCell)
-    func setPriority(cell: ListItemCell)
+    func popoverDisplay(cell: ListItemCell)
 }
 
 class ListItemCell: UITableViewCell {
@@ -50,15 +50,14 @@ class ListItemCell: UITableViewCell {
     
     var priorityButton: UIButton = {
         let button = UIButton(type: .custom)
-        
-//        button.setImage(UIImage(named: "UnChecked"), for: .normal)
-//        button.setImage(UIImage(named: "Checked"), for: .selected)
         button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = UIColor.white
         button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderColor = UIColor(r: 0, g: 84, b: 147).cgColor
         button.titleLabel?.font = UIFont.init(name: "Avenir Next", size: 24)
+        button.setTitleColor(UIColor(r: 0, g: 84, b: 147), for: .normal)
+        button.layer.cornerRadius = 10
         return button
     }()
     
@@ -73,7 +72,7 @@ class ListItemCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupCell()
         
-        priorityButton.addTarget(self, action: #selector(setPriority), for: .touchUpInside)
+        priorityButton.addTarget(self, action: #selector(popoverDisplay), for: .touchUpInside)
         checkButton.addTarget(self, action: #selector(setChecked), for: .touchUpInside)
         itemLabel.translatesAutoresizingMaskIntoConstraints = false
         itemLabel.numberOfLines = 0
@@ -103,7 +102,7 @@ class ListItemCell: UITableViewCell {
         self.delegate?.setChecked(cell: self)
     }
     
-    @objc private func setPriority() {
-        self.delegate?.setPriority(cell: self)
+    @objc private func popoverDisplay() {
+        self.delegate?.popoverDisplay(cell: self)
     }
 }

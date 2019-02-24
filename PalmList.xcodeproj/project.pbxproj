@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A5104B322218B8D60051AA5D /* AlwaysShowPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5104B312218B8D60051AA5D /* AlwaysShowPopup.swift */; };
+		A5104B38221905370051AA5D /* PopoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5104B37221905370051AA5D /* PopoverCell.swift */; };
+		A53EF34C221CE64C00CEE5B1 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53EF34B221CE64C00CEE5B1 /* PopoverViewController.swift */; };
 		A5829D23220631540000939C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5829D22220631540000939C /* Extensions.swift */; };
 		A5BBA58521FE3A000071DD2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BBA58421FE3A000071DD2F /* AppDelegate.swift */; };
 		A5BBA58721FE3A000071DD2F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BBA58621FE3A000071DD2F /* MainViewController.swift */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		A5104B312218B8D60051AA5D /* AlwaysShowPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlwaysShowPopup.swift; sourceTree = "<group>"; };
+		A5104B37221905370051AA5D /* PopoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverCell.swift; sourceTree = "<group>"; };
+		A53EF34B221CE64C00CEE5B1 /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		A5829D22220631540000939C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A5BBA58121FE3A000071DD2F /* PalmList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PalmList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5BBA58421FE3A000071DD2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +74,8 @@
 				A5829D22220631540000939C /* Extensions.swift */,
 				A5BBA59D21FE56650071DD2F /* ListItemCell.swift */,
 				A5104B312218B8D60051AA5D /* AlwaysShowPopup.swift */,
+				A5104B37221905370051AA5D /* PopoverCell.swift */,
+				A53EF34B221CE64C00CEE5B1 /* PopoverViewController.swift */,
 				A5BBA58621FE3A000071DD2F /* MainViewController.swift */,
 				A5BBA58E21FE3A000071DD2F /* Assets.xcassets */,
 				A5BBA59021FE3A000071DD2F /* LaunchScreen.storyboard */,
@@ -151,9 +157,11 @@
 			files = (
 				A5BBA5A22205F12D0071DD2F /* ListItem+CoreDataProperties.swift in Sources */,
 				A5BBA59E21FE56650071DD2F /* ListItemCell.swift in Sources */,
+				A53EF34C221CE64C00CEE5B1 /* PopoverViewController.swift in Sources */,
 				A5BBA58D21FE3A000071DD2F /* PalmList.xcdatamodeld in Sources */,
 				A5BBA5A12205F12D0071DD2F /* ListItem+CoreDataClass.swift in Sources */,
 				A5BBA58721FE3A000071DD2F /* MainViewController.swift in Sources */,
+				A5104B38221905370051AA5D /* PopoverCell.swift in Sources */,
 				A5BBA58521FE3A000071DD2F /* AppDelegate.swift in Sources */,
 				A5104B322218B8D60051AA5D /* AlwaysShowPopup.swift in Sources */,
 				A5829D23220631540000939C /* Extensions.swift in Sources */,
