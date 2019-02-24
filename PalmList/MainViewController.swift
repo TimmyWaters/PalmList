@@ -220,6 +220,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = listTableView.cellForRow(at: indexPath) as! ListItemCell
         
         let controller = PopoverViewController()
+        controller.delegate = self
         controller.modalPresentationStyle = .popover
         controller.preferredContentSize = CGSize(width: 300, height: 80)
         let presentationController = AlwaysPresentAsPopover.configurePresentation(forController: controller)
@@ -231,6 +232,31 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func setPriorityLevel(level: String) {
-        print("It worked")
+        let indexPath = popoverCellIndex
+        let cell = listTableView.cellForRow(at: indexPath) as! ListItemCell
+        cell.priorityButton.setTitle(level, for: .normal)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request = ListItem.createFetchRequest()
+        request.returnsObjectsAsFaults = false
+        
+        var items: [ListItem] = []
+        
+        if let results = try? context.fetch(request) {
+            for result in results {
+                items.insert(result, at: 0)
+            }
+        }
+        
+        items[indexPath.row].priorityLevel = level
+        
+        do {
+            try context.save()
+        }
+        catch let err {
+            print(err)
+        }
     }
 }

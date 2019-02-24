@@ -58,9 +58,7 @@ class PopoverViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item + 1)
-        delegate?.setPriorityLevel(level: level[indexPath.item])
-        
+        self.delegate?.setPriorityLevel(level: level[indexPath.item])
         self.dismiss(animated: true, completion: nil)
         
     }
