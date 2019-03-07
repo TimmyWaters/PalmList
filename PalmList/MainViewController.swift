@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ListItemCellDelegate, PriorityLevelDelegate {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ListItemCellDelegate {
     
     let listTableView = UITableView()
     
@@ -75,12 +75,26 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //        cell.checkButton.isSelected = listItems[indexPath.row].isChecked
         cell.checkButton.isSelected = items[indexPath.section][indexPath.row].isChecked
 //        cell.priorityButton.setTitle(listItems[indexPath.row].priorityLevel, for: .normal)
-        cell.priorityButton.setTitle(items[indexPath.section][indexPath.row].priorityLevel, for: .normal)
+        cell.priorityLabel.text = items[indexPath.section][indexPath.row].priorityLevel
 //        cell.itemLabel.text = listItems[indexPath.row].itemText
         cell.itemLabel.text = items[indexPath.section][indexPath.row].itemText
         cell.delegate = self
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = listTableView.cellForRow(at: indexPath) as! ListItemCell
+        
+        let controller = PopoverViewController()
+        controller.modalPresentationStyle = .popover
+        controller.preferredContentSize = CGSize(width: 300, height: 400)
+        let presentationController = AlwaysPresentAsPopover.configurePresentation(forController: controller)
+        presentationController.sourceView = cell
+        presentationController.sourceRect = cell.bounds
+        presentationController.permittedArrowDirections = [.up, .down]
+        presentationController.backgroundColor = UIColor(r: 0, g: 84, b: 147)
+        self.present(controller, animated: true)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -245,82 +259,5 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         catch let err {
             print(err)
         }
-    }
-    
-    func popoverDisplay(cell: ListItemCell) {
-        guard let indexPath = self.listTableView.indexPath(for: cell) else {
-            // Note, this shouldn't happen - how did the user tap on a button that wasn't on screen?
-            return
-        }
-        popoverCellIndex = indexPath
-        let cell = listTableView.cellForRow(at: indexPath) as! ListItemCell
-        
-        let controller = PopoverViewController()
-        controller.delegate = self
-        controller.modalPresentationStyle = .popover
-        controller.preferredContentSize = CGSize(width: 300, height: 80)
-        let presentationController = AlwaysPresentAsPopover.configurePresentation(forController: controller)
-        presentationController.sourceView = cell
-        presentationController.sourceRect = cell.bounds
-        presentationController.permittedArrowDirections = [.up, .down]
-        presentationController.backgroundColor = UIColor(r: 0, g: 84, b: 147)
-        self.present(controller, animated: true)
-    }
-    
-    func setPriorityLevel(level: String) {
-        let indexPath = popoverCellIndex
-        let fromIndexPath = IndexPath(row: indexPath.row, section: indexPath.section)
-        let toIndexPath = IndexPath(row: 0, section: Int(level)! - 1)
-
-        let cell = listTableView.cellForRow(at: indexPath) as! ListItemCell
-        cell.priorityButton.setTitle(level, for: .normal)
-
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-
-        let request = ListItem.createFetchRequest()
-        request.returnsObjectsAsFaults = false
-
-
-//        if let results = try? context.fetch(request) {
-//            for result in results {
-//                items[Int(level)! - 1].insert(result, at: 0)
-//            }
-//        }
-        
-        var priority = 0
-        
-        if let results = try? context.fetch(request) {
-            for result in results {
-                priority = Int(result.priorityLevel)!
-                
-                //                listItems.insert(result, at: 0)
-                items[priority - 1].insert(result, at: 0)
-            }
-        }
-        
-        let tempItem = items[fromIndexPath.section][fromIndexPath.row]
-        
-        items[fromIndexPath.section].remove(at: fromIndexPath.row)
-        print("1. Worked")
-        
-        items[toIndexPath.section].insert(tempItem, at: toIndexPath.row)
-        print("2. Worked")
-        
-        items[toIndexPath.section][toIndexPath.row].priorityLevel = level
-        print("3. Worked")
-
-        do {
-            try context.save()
-        }
-        catch let err {
-            print(err)
-        }
-        print("4. Worked")
-        
-        listTableView.moveRow(at: fromIndexPath, to: toIndexPath)
-        
-        
-        print("5. Worked")
     }
 }

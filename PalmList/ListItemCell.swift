@@ -11,7 +11,6 @@ import Foundation
 
 protocol ListItemCellDelegate {
     func setChecked(cell: ListItemCell)
-    func popoverDisplay(cell: ListItemCell)
 }
 
 class ListItemCell: UITableViewCell {
@@ -48,17 +47,17 @@ class ListItemCell: UITableViewCell {
         return button
     }()
     
-    var priorityButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = UIColor.white
-        button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor(r: 0, g: 84, b: 147).cgColor
-        button.titleLabel?.font = UIFont.init(name: "Avenir Next", size: 24)
-        button.setTitleColor(UIColor(r: 0, g: 84, b: 147), for: .normal)
-        button.layer.cornerRadius = 10
-        return button
+    let priorityLabel: UILabel = {
+        let label = UILabel()
+        label.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        label.textColor = UIColor(r: 0, g: 84, b: 147)
+        label.font = UIFont.init(name: "Avenir Next", size: 24)
+        label.backgroundColor = .white
+        label.layer.borderColor = UIColor(r: 0, g: 84, b: 147).cgColor
+        label.layer.borderWidth = 2
+        label.layer.cornerRadius = 10
+        label.textAlignment = .center
+        return label
     }()
     
     let itemLabel: UILabel = {
@@ -72,7 +71,6 @@ class ListItemCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupCell()
         
-        priorityButton.addTarget(self, action: #selector(popoverDisplay), for: .touchUpInside)
         checkButton.addTarget(self, action: #selector(setChecked), for: .touchUpInside)
         itemLabel.translatesAutoresizingMaskIntoConstraints = false
         itemLabel.numberOfLines = 0
@@ -82,16 +80,16 @@ class ListItemCell: UITableViewCell {
     func setupCell() {
         addSubview(cellView)
         cellView.addSubview(checkButton)
-        cellView.addSubview(priorityButton)
+        cellView.addSubview(priorityLabel)
         cellView.addSubview(itemLabel)
         cellView.heightAnchor.constraint(greaterThanOrEqualToConstant: 60).isActive = true
         cellView.setAnchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 4, paddingLeft: 8, paddingBottom: 4, paddingRight: 8)
         checkButton.setAnchor(top: nil, left: cellView.leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 50, height: 50)
         checkButton.centerYAnchor.constraint(equalTo: cellView.centerYAnchor).isActive = true
-        priorityButton.setAnchor(top: nil, left: checkButton.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 40, height: 40)
-        priorityButton.centerYAnchor.constraint(equalTo: checkButton.centerYAnchor).isActive = true
-        itemLabel.setAnchor(top: cellView.topAnchor, left: priorityButton.rightAnchor, bottom: cellView.bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 20, paddingBottom: 0, paddingRight: 20)
-        itemLabel.centerYAnchor.constraint(equalTo: priorityButton.centerYAnchor).isActive = true
+        priorityLabel.setAnchor(top: nil, left: checkButton.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 40, height: 40)
+        priorityLabel.centerYAnchor.constraint(equalTo: checkButton.centerYAnchor).isActive = true
+        itemLabel.setAnchor(top: cellView.topAnchor, left: priorityLabel.rightAnchor, bottom: cellView.bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 20, paddingBottom: 0, paddingRight: 20)
+        itemLabel.centerYAnchor.constraint(equalTo: priorityLabel.centerYAnchor).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -100,9 +98,5 @@ class ListItemCell: UITableViewCell {
     
     @objc private func setChecked() {
         self.delegate?.setChecked(cell: self)
-    }
-    
-    @objc private func popoverDisplay() {
-        self.delegate?.popoverDisplay(cell: self)
     }
 }
