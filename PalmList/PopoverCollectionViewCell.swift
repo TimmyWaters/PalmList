@@ -13,10 +13,10 @@ class PopoverCollectionViewCell: UICollectionViewCell {
     let cellLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        label.textColor = .white
+        label.textColor = UIColor(r: 0, g: 84, b: 147)
         label.font = UIFont.init(name: "Avenir Next", size: 24)
-        label.backgroundColor = UIColor(r: 0, g: 84, b: 147)
-        label.layer.borderColor = UIColor.white.cgColor
+        label.backgroundColor = UIColor(r: 211, g: 221, b: 230)
+        label.layer.borderColor = UIColor(r: 0, g: 84, b: 147).cgColor
         label.layer.borderWidth = 2
         label.layer.cornerRadius = 10
         label.textAlignment = .center
@@ -45,6 +45,19 @@ class PopoverCollectionViewCell: UICollectionViewCell {
         addSubview(cellLabel)
         cellLabel.translatesAutoresizingMaskIntoConstraints = false
         cellLabel.setAnchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 40, height: 40)
-        self.setCellShadow()
+//        self.setCellShadow()
+    }
+    
+    override var isSelected: Bool {
+        didSet {
+            if self.isSelected {
+                cellLabel.font = UIFont.init(name: "AvenirNext-bold", size: 24)
+                cellLabel.layer.borderWidth = 5
+            }
+            else {
+                cellLabel.font = UIFont.init(name: "Avenir Next", size: 24)
+                cellLabel.layer.borderWidth = 2
+            }
+        }
     }
 }

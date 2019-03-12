@@ -62,7 +62,7 @@ class ListItemCell: UITableViewCell {
     
     let itemLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.black
+        label.textColor = UIColor(r: 0, g: 84, b: 147)
         label.font = UIFont.init(name: "Avenir Next", size: 16)
         return label
     }()
@@ -96,7 +96,7 @@ class ListItemCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc private func setChecked() {
+    @objc func setChecked() {
         self.delegate?.setChecked(cell: self)
     }
 }

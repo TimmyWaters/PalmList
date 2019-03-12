@@ -10,6 +10,7 @@
 		A5104B322218B8D60051AA5D /* AlwaysShowPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5104B312218B8D60051AA5D /* AlwaysShowPopup.swift */; };
 		A53AF88B2230C76600A17A07 /* PopoverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53AF88A2230C76600A17A07 /* PopoverCollectionViewCell.swift */; };
 		A53EF34C221CE64C00CEE5B1 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53EF34B221CE64C00CEE5B1 /* PopoverViewController.swift */; };
+		A548C1512235B939003CD6C2 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A548C1502235B939003CD6C2 /* AddItemViewController.swift */; };
 		A5829D23220631540000939C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5829D22220631540000939C /* Extensions.swift */; };
 		A5BBA58521FE3A000071DD2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BBA58421FE3A000071DD2F /* AppDelegate.swift */; };
 		A5BBA58721FE3A000071DD2F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BBA58621FE3A000071DD2F /* MainViewController.swift */; };
@@ -25,6 +26,7 @@
 		A5104B312218B8D60051AA5D /* AlwaysShowPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlwaysShowPopup.swift; sourceTree = "<group>"; };
 		A53AF88A2230C76600A17A07 /* PopoverCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverCollectionViewCell.swift; sourceTree = "<group>"; };
 		A53EF34B221CE64C00CEE5B1 /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
+		A548C1502235B939003CD6C2 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		A5829D22220631540000939C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A5BBA58121FE3A000071DD2F /* PalmList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PalmList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5BBA58421FE3A000071DD2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				A5104B312218B8D60051AA5D /* AlwaysShowPopup.swift */,
 				A53AF88A2230C76600A17A07 /* PopoverCollectionViewCell.swift */,
 				A53EF34B221CE64C00CEE5B1 /* PopoverViewController.swift */,
+				A548C1502235B939003CD6C2 /* AddItemViewController.swift */,
 				A5BBA58621FE3A000071DD2F /* MainViewController.swift */,
 				A5BBA58E21FE3A000071DD2F /* Assets.xcassets */,
 				A5BBA59021FE3A000071DD2F /* LaunchScreen.storyboard */,
@@ -165,6 +168,7 @@
 				A5BBA58521FE3A000071DD2F /* AppDelegate.swift in Sources */,
 				A5104B322218B8D60051AA5D /* AlwaysShowPopup.swift in Sources */,
 				A5829D23220631540000939C /* Extensions.swift in Sources */,
+				A548C1512235B939003CD6C2 /* AddItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
