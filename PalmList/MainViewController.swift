@@ -234,6 +234,15 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.priorityLabel.text = priority
         cell.itemLabel.text = itemText
         
+        var isChecked: Bool
+        
+        switch cell.checkButton.isSelected {
+        case true:
+            isChecked = true
+        case false:
+            isChecked = false
+        }
+        
         let newIndexPath = IndexPath(row: 0, section: Int(priority)! - 1)
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -254,6 +263,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         tempItems[popoverCellIndex.section][popoverCellIndex.row].priorityLevel = priority
         tempItems[popoverCellIndex.section][popoverCellIndex.row].itemText = itemText
+        tempItems[popoverCellIndex.section][popoverCellIndex.row].isChecked = isChecked
         
         do {
             try context.save()
